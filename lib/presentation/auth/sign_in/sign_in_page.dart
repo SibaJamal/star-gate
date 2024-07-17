@@ -15,6 +15,7 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  bool _isVisible = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,11 +51,18 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock_outline,color: primaryColor,),
+                    suffixIcon: IconButton(
+                      onPressed: (){
+                        setState(() {
+                          _isVisible = !_isVisible;
+                        });
+                      },
+                      icon: _isVisible? Icon(Icons.visibility,color: primaryColor,):Icon(Icons.visibility_off,color: primaryColor,),),
                     hintText: 'Password',
                     hintStyle: TextStyle(color: textGrey),
                   ),
                   keyboardType: TextInputType.text,
-                  obscureText: true,
+                  obscureText: !_isVisible,
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height*0.05,),

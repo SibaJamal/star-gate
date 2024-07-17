@@ -11,10 +11,11 @@ class GridCard extends StatefulWidget {
 class _GridCardState extends State<GridCard> {
   @override
   Widget build(BuildContext context) {
-    return            SizedBox(
+    return SizedBox(
       height:225,
       width: 190,
       child: Card(
+        color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(

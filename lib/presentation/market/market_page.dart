@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:star_gate/presentation/market/widgets/grid_card.dart';
 import 'package:star_gate/presentation/theme/app_theme.dart';
 
-import '../core/widgets/header.dart';
+import '../core/widgets/custom_app_bar.dart';
 import 'widgets/cards.dart';
 
 @RoutePage()
@@ -19,32 +19,30 @@ class _MarketPageState extends State<MarketPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: const CustomAppBar(title: 'Market',),
         body:Column(
           children: [
-            const HeaderWidget(title: 'Market',),
-             Padding(
-               padding: const EdgeInsets.all(8.0),
-               child: SizedBox(
-                height: 70,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    Cards(category: 'clothes'),
-                    Cards(category: 'tools'),
-                    Cards(category: 'shoes'),
-                    Cards(category: 'sinba'),
-                    Cards(category: 'dfgdg'),
-                    Cards(category: 'dfgdge'),
-                    Cards(category: 'sfsdfsf'),
-                    Cards(category: 'fdfgawdv'),
-                    Cards(category: 'dfgdfg'),
-                  ],
-                          )),
-             ),
+             SizedBox(
+              height: 70,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Cards(category: 'clothes'),
+                  Cards(category: 'tools'),
+                  Cards(category: 'shoes'),
+                  Cards(category: 'sinba'),
+                  Cards(category: 'dfgdg'),
+                  Cards(category: 'dfgdge'),
+                  Cards(category: 'sfsdfsf'),
+                  Cards(category: 'fdfgawdv'),
+                  Cards(category: 'dfgdfg'),
+                ],
+                        )),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: SizedBox(
-                height: MediaQuery.of(context).size.height *  0.78,
+                height: MediaQuery.of(context).size.height *  0.81,
                 child: GridView.builder(
                   itemCount: 100,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

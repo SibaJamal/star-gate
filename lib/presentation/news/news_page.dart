@@ -1,8 +1,10 @@
 import 'package:auto_route/annotations.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:star_gate/presentation/news/widgets/news_card.dart';
 
-import '../core/widgets/header.dart';
+import '../core/widgets/custom_app_bar.dart';
 
 @RoutePage()
 class NewsPage extends StatelessWidget {
@@ -12,10 +14,11 @@ class NewsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: const CustomAppBar( title:'News',),
           body: SingleChildScrollView(
           child: Column(
               children: [
-                const HeaderWidget(title: 'News',),
                 SizedBox(height: MediaQuery.of(context).size.height*0.001,),
                 const Row(
                   children: [
@@ -29,7 +32,7 @@ class NewsPage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: 100,
+                  height: 200,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: const [
@@ -42,7 +45,7 @@ class NewsPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height*0.1,),
+                SizedBox(height: MediaQuery.of(context).size.height*0.005,),
                 const Row(
                   children: [
                     Padding(
@@ -55,11 +58,11 @@ class NewsPage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: 100,
+                  height: 200,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: const [
-                      NewsCard(url: 'assets/images/vid1.png'),
+                      NewsCard(url: 'assets/images/st.png'),
                       NewsCard(url: 'assets/images/vid2.png'),
                       NewsCard(url: 'assets/images/vid1.png'),
                       NewsCard(url: 'assets/images/vid2.png'),

@@ -8,7 +8,7 @@ class NewsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Image.asset(url,height: 150,width: 160,),
+      child: Image.asset(url,fit: BoxFit.fill,width: 300,),
     );
   }
 }

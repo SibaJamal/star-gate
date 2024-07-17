@@ -15,6 +15,8 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  bool _isVisible= false;
+  bool _isVisibleConfirm = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,11 +66,18 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock_outline,color: primaryColor,),
+                    suffixIcon: IconButton(
+                      onPressed: (){
+                        setState(() {
+                          _isVisible = !_isVisible;
+                        });
+                      },
+                      icon: _isVisible? Icon(Icons.visibility,color: primaryColor,):Icon(Icons.visibility_off,color: primaryColor,),),
                     hintText: 'Password',
                     hintStyle: TextStyle(color: textGrey),
                   ),
                   keyboardType: TextInputType.text,
-                  obscureText: true,
+                  obscureText: !_isVisible,
                 ),
               ),
               Padding(
@@ -80,11 +89,18 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock_outline,color: primaryColor,),
+                    suffixIcon: IconButton(
+                      onPressed: (){
+                        setState(() {
+                          _isVisibleConfirm = !_isVisibleConfirm;
+                        });
+                      },
+                      icon: _isVisibleConfirm? Icon(Icons.visibility,color: primaryColor,):Icon(Icons.visibility_off,color: primaryColor,),),
                     hintText: 'Confirm Password',
                     hintStyle: TextStyle(color: textGrey),
                   ),
                   keyboardType: TextInputType.text,
-                  obscureText: true,
+                  obscureText: !_isVisibleConfirm,
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height*0.08,),
